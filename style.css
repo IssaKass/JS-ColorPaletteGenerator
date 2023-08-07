@@ -1,0 +1,143 @@
+/* Variables */
+:root {
+  --text-color: #444;
+  --bg-color: #e9e9f9;
+  --widget-bg: #fff;
+  --widget-disabled-bg: #f3f3f3;
+  --shadow-lg: 4px 4px 0 rgba(100, 100, 100, 0.1);
+  --shadow-sm: 3px 3px 0 rgba(100, 100, 100, 0.1);
+  --scale-sm: 0.97;
+  --brightness: 110%;
+  --transition: 200ms ease;
+}
+
+/* Reset and Defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: var(--widget-bg);
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 16px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-lg);
+}
+
+button:active {
+  transform: scale(var(--scale-sm));
+  box-shadow: var(--shadow-sm);
+}
+
+/* Body */
+body {
+  background-color: var(--bg-color);
+  transition: var(--transition);
+  min-height: 100vh;
+  padding: 50px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.theme-dark {
+  --text-color: #ddd;
+  --bg-color: #2d2d2d;
+  --widget-bg: #555;
+  --widget-disabled-bg: #333;
+  --shadow-lg: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  --shadow-sm: 3px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Toggle theme button */
+.toggle-theme-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.toggle-theme-btn:active {
+  transform: scale(var(--scale-sm));
+  box-shadow: var(--shadow-sm);
+}
+
+/* Layout */
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  place-items: center;
+  gap: 30px;
+}
+
+/* Color palette */
+.color-palette {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.color-palette .color {
+  background-color: var(--widget-bg);
+  padding: 8px;
+  border-radius: 6px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+}
+
+.color-palette .color:active {
+  transform: scale(var(--scale-sm));
+  box-shadow: var(--shadow-sm);
+}
+
+.color-palette .color.copy {
+  pointer-events: none;
+  transform: scale(var(--scale-sm));
+  background-color: var(--widget-disabled-bg);
+}
+
+.color-palette .color .color-box {
+  width: 150px;
+  height: 150px;
+  border-radius: inherit;
+  transition: var(--transition);
+}
+
+.color-palette .color:hover .color-box {
+  filter: brightness(var(--brightness));
+}
+
+.color-palette .color .color-value {
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 16px;
+  margin: 10px 0 3px;
+}
+
+/* Generate button */
+.generate-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+}
